@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App=()=>{
+  const [count, setCount]= useState(0)
+  return(
+    <div className="container my-5">
+      <div className="card my-5">
+        <div className="card-body text-center">
+         
+          <div className="my-5">
+            <h2 className="my-5">{`You have clicked the button ${count} times`}</h2>
+            <button className="btn btn-primary mx-3" onClick={()=>setCount(count+1)}><PlusOutlined /></button>
+            <button className="btn btn-danger mx-3" onClick={()=>(count>0 ? setCount(count-1): setCount(0))}><MinusOutlined /></button>
+           
+            
+
+            <button className="btn btn-secondary mx-3"onClick={()=>setCount(0)}>Reset</button>
+          </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
